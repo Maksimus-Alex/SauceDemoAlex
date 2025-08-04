@@ -27,6 +27,17 @@ public class LacatorsTest extends BAseTest {
         driver.findElements(By.xpath("//tag[text()='Sauce Labs Bike Ligt']/following::*"));//ниже текущего элемента по дереву (на всех уровнях и слоях), но исключая собственных потомков
         driver.findElements(By.xpath("//button[text()='Add to cart']/parent::div"));//Выбирает верхний (родительский) узел (по отношению к текущему узлу)
         driver.findElements(By.xpath("//button[text()='Add to cart']/preceding::div"));//Preceding аналогичен Following, но в обратную сторону, то есть все элементы выше указанного.
+        driver.findElements(By.cssSelector(".inventory_item_name"));//class
+        driver.findElements(By.cssSelector(".inventory_item_name.page_wrapper"));//class1.class2
+        driver.findElements(By.cssSelector("#root"));//#id
+        driver.findElements(By.cssSelector("button"));//tagname
+        driver.findElements(By.cssSelector("button.primary"));//tagname.class
+        driver.findElements(By.cssSelector("[id='root']"));
+        driver.findElements(By.cssSelector("[class~=inventory_item_name]"));
+        driver.findElements(By.cssSelector("[class|=ap]"));
+        driver.findElements(By.cssSelector("[class^=inventory]"));
+        driver.findElements(By.cssSelector("[id$=ot]"));
+        driver.findElements(By.cssSelector("[class*=inventory]"));
     }
 
 }
