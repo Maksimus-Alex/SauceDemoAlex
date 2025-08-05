@@ -39,7 +39,6 @@ public class LacatorsTest extends BAseTest {
         driver.findElements(By.cssSelector("[id$=ot]"));
         driver.findElements(By.cssSelector("[class*=inventory]"));
     }
-
 }
 
 

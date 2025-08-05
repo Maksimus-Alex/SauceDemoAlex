@@ -18,8 +18,6 @@ public class CartTest extends BAseTest {
             String priceProduct = driver.findElement(By.className("inventory_item_price")).getText();
             Assert.assertEquals("Sauce Labs Onesie", nameProduct);
             Assert.assertEquals("$7.99", priceProduct);
-
-
     }
 }
 
