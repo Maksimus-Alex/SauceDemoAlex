@@ -1,8 +1,11 @@
 package tests;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
@@ -10,7 +13,7 @@ import pages.*;
 import java.time.Duration;
 import java.util.HashMap;
 
-public class BAseTest {
+public class BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     ProductsPage productsPage;
@@ -43,4 +46,17 @@ public class BAseTest {
     public void tearDown() {
         driver.quit();
     }
+
+    public void clickJS(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("argument[0].clcik();", element);
+    }
+
+    public void waitForPageLoaded() {
+        new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor) driver)
+                        .executeScript("return document.readyState")
+                        .toString().equals("complete");        }
+        }; }
 }

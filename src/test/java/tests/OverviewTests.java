@@ -3,7 +3,7 @@ package tests;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class OverviewTests extends BAseTest {
+public class OverviewTests extends BaseTest {
 
     @Test
     public void checkOverview() {
@@ -12,7 +12,7 @@ public class OverviewTests extends BAseTest {
         loginPage.login("standard_user", "secret_sauce");// авторизация
         productsPage.addToCart("Sauce Labs Backpack");
         productsPage.addToCart("Sauce Labs Bike Light");
-        cartPage.open();
+        productsPage.open();
         checkoutPage.open();
         checkoutPage.login("Max", "Alex", "123456");
         softAssert.assertEquals(overviewPage.findPrice(), "Total: $43.18", "It is different ");

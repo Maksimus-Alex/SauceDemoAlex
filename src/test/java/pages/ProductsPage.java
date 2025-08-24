@@ -8,6 +8,7 @@ public class ProductsPage extends BasePage {
     private final By TITLE = By.className("title");
     private final String ADD_TO_CART_PATTERN = "//*[text()='%s']/ancestor::div[@class='inventory_item']" +
             "//button[text()='Add to cart']";
+    private final By CART_BUTTON = By.className("shopping_cart_link");
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -15,6 +16,10 @@ public class ProductsPage extends BasePage {
 
     public String getTitle() {
         return driver.findElement(TITLE).getText();
+    }
+
+    public void open() {
+        driver.findElement(CART_BUTTON).click();
     }
 
     public void addYoCart(String product) {

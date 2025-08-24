@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class CheckOutTests extends BAseTest {
+public class CheckOutTests extends BaseTest {
 
     @Test
     public void checkAll() {

@@ -3,7 +3,7 @@ package tests;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class CartTest extends BAseTest {
+public class CartTest extends BaseTest {
 
     SoftAssert softAssert = new SoftAssert();
 
@@ -18,7 +18,7 @@ public class CartTest extends BAseTest {
     @Test
     public void checkProductInCart() {
         addProductToCart();
-        cartPage.open(); // открыли корзину
+        productsPage.open(); // открыли корзину
         cartPage.isProductInCart("Sauce Labs Backpack");// проверили товар в корзине
         cartPage.isProductInCart("Sauce Labs Bike Light");
     }

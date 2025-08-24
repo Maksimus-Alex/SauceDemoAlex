@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class CompleteTest extends BAseTest {
+public class CompleteTest extends BaseTest {
 
     @Test
     public void checkOverview() {
@@ -14,7 +14,7 @@ public class CompleteTest extends BAseTest {
         loginPage.login("standard_user", "secret_sauce");
         productsPage.addToCart("Sauce Labs Backpack");
         productsPage.addToCart("Sauce Labs Bike Light");
-        cartPage.open();
+        productsPage.open();
         checkoutPage.open();
         checkoutPage.login("Max", "Alex", "123456");
         softAssert.assertEquals(overviewPage.findPrice(), "Total: $43.18", "It is different ");
