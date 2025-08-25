@@ -5,7 +5,7 @@ import org.testng.asserts.SoftAssert;
 
 public class OverviewTests extends BaseTest {
 
-    @Test
+    @Test(testName = "Проверка информации о товаре в корзине")
     public void checkOverview() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();

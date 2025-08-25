@@ -6,7 +6,7 @@ import static org.testng.Assert.assertEquals;
 
 public class CheckOutTests extends BaseTest {
 
-    @Test
+    @Test(testName = "Проверка всех строчек", priority = 4)
     public void checkAll() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");// авторизация
@@ -16,7 +16,7 @@ public class CheckOutTests extends BaseTest {
         checkoutPage.login("Max", "Alex", "123456");
     }
 
-    @Test
+    @Test(testName = "Проверка кода на странице Checkout", priority = 3)
     public void checkCode() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");// авторизация
@@ -29,7 +29,7 @@ public class CheckOutTests extends BaseTest {
                 "Сообщение о тесте не соответствует");
     }
 
-    @Test
+    @Test(testName = "Проверка имени на странице Checkout", priority = 2)
     public void checkLastName() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");// авторизация
@@ -42,7 +42,7 @@ public class CheckOutTests extends BaseTest {
                 "Сообщение о тесте не соответствует");
     }
 
-    @Test
+    @Test(testName = "Проверка фамилии на странице Checkout", priority = 4, dependsOnMethods = "checkLastName")
     public void checkFirstName() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");// авторизация
@@ -55,7 +55,7 @@ public class CheckOutTests extends BaseTest {
                 "Сообщение о тесте не соответствует");
     }
 
-    @Test
+    @Test(testName = "Выявление кода ошибки", priority = 1)
     public void checkAllString() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");// авторизация
@@ -68,7 +68,7 @@ public class CheckOutTests extends BaseTest {
                 "Сообщение о тесте не соответствует");
     }
 
-    @Test
+    @Test(testName = "Выявление кода ошибки если внести (чужие) параметры ", priority = 5, dependsOnMethods = "checkCode")
     public void checkTestString() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");// авторизация
