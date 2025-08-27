@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="2" name="Smoke Test Alex" parallel="tests">
+    <listeners>
+        <listener class-name="tests.AnnotationTransform"/>
+    </listeners>
     <test name="Chrome">
         <classes>
             <class name="tests.LoginTest"/>
             <class name="tests.CompleteTest">
-            <methods>
-                <include name="checkOverview"/>
-            </methods>
+                <methods>
+                    <include name="checkOverview"/>
+                </methods>
             </class>
             <parameter name="browser" value="chrome"/>
         </classes>
@@ -19,7 +22,7 @@
                 <methods>
                     <include name="addProductToCart"/>
                 </methods>
-        </class>
+            </class>
             <parameter name="browser" value="firefox"/>
         </classes>
     </test> <!-- Test -->
