@@ -1,8 +1,12 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import tests.AllureUnits;
+
+import static tests.AllureUnits.takeScreenshot;
 
 public class OverviewPage extends BasePage {
 
@@ -13,14 +17,18 @@ public class OverviewPage extends BasePage {
         super(driver);
     }
 
+    @Step ("Найти Цену")
     public String findPrice() {
         WebElement price = driver.findElement(PRODUCT_INFORMATION);
+        takeScreenshot(driver);
         String priceProduct = price.getText();
         return priceProduct;
     }
 
+    @Step ("Найти скидку")
     public String findTax() {
         WebElement tax = driver.findElement(TAX_INFORMATION);
+        takeScreenshot(driver);
         String taxProduct = tax.getText();
         return taxProduct;
     }

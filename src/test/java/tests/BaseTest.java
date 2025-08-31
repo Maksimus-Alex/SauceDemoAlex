@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Owner;
+import jdk.jfr.Description;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,6 +28,8 @@ public class BaseTest {
 
     @Parameters({"browser"})
     @BeforeMethod(description = "Настройка браузера", alwaysRun = true)
+    @Description("Авторизация")
+    @Owner("Maksim Aliakseichyk")
     public void setup(@Optional("chrome") String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();

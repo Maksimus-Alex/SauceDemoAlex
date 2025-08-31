@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Owner;
+import jdk.jfr.Description;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -8,12 +10,16 @@ import static org.testng.Assert.assertEquals;
 public class LoginTest extends BaseTest {
 
     @Test(testName = "Авторизация", priority = 4)
+    @Description("Авторизация")
+    @Owner("Maksim Aliakseichyk")
     public void checkLogin() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
     }
 
     @Test(testName = "Авторизация без пароля", priority = 5, dependsOnMethods = "checkLogin")
+    @Description("Проверка без пароля")
+    @Owner("Maksim Aliakseichyk")
     public void checkLoginWithoutPassword() {
         loginPage.open();
         loginPage.login("standard_user", "");

@@ -1,7 +1,9 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import tests.AllureUnits;
 
 public class LoginPage extends BasePage {
 
@@ -14,18 +16,24 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
+    @Step("Открыть сайт")
     public void open() {
         driver.get(BASE_URL);// метод который открывает наш сайт
     }
 
+    @Step("Авторизация")
     public void login(String user, String password) { // Метод который помогает нам ввойти используя параметры
         driver.findElement(USERNAME_INPUT).sendKeys(user);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
+        AllureUnits.takeScreenshot(driver);
     }
 
+    @Step ("Сообщение ошибки")
     public String getErrorMessage() { // метод который выдает нам текст ошибки, если есть ошибка
         return driver.findElement(ERROR_MESSAGE).getText();
     }
+
+
 }
 

@@ -1,11 +1,23 @@
 package tests;
 
+import io.qameta.allure.*;
+import jdk.jfr.Description;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 public class CompleteTest extends BaseTest {
 
+    @Owner("Maksim Aliakseichyk")
+    @Link("")
+    @Description("Тест проверки страницы корзины")
+    @Epic("SauceDemo open page")
+    @Feature("open page")
+    @Story("Opening the page with positive cred")
+    @Severity(SeverityLevel.CRITICAL)
+    @Lead("TMS")
+    @TmsLink("SD-01")
+    @Issue("SD_01/1")
     @Test(testName = "Финальная проверка всех параметров и тестов")
     public void checkOverview() {
         SoftAssert softAssert = new SoftAssert();
