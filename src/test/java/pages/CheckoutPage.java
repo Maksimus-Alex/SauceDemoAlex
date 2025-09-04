@@ -1,7 +1,10 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import static tests.AllureUnits.takeScreenshot;
 
 public class CheckoutPage extends BasePage {
 
@@ -15,17 +18,21 @@ public class CheckoutPage extends BasePage {
         super(driver);
     }
 
+    @Step
     public void open() {
         driver.get(CHECK_OUT_URL);// метод который открывает
     }
 
+    @Step ("Авторизация Checkout")
     public void login(String firstname, String lastname, String code) { // Метод который помогает нам ввойти используя параметры
         driver.findElement(FIRSTNAME_INPUT).sendKeys(firstname);
         driver.findElement(LASTNAME_INPUT).sendKeys(lastname);
         driver.findElement(ZIPCODE_INPUT).sendKeys(code);
+        takeScreenshot(driver);
         driver.findElement(CONTINUE_BUTTON).click();
     }
 
+    @Step ("Сообщение ошибки")
     public String getErrorMessage() { // метод который выдает нам текст ошибки, если есть ошибка
         return driver.findElement(ERROR_MESSAGE_CHECKOUT).getText();
     }

@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class LocatorsTest extends BaseTest {
 
-    @Test
+    @Test(testName = "Найти локаторы")
     public void checkLocators() {
         driver.get("https://www.saucedemo.com/");
         driver.findElements(By.id("user-name"));
@@ -21,7 +21,7 @@ public class LocatorsTest extends BaseTest {
         driver.findElements(By.linkText("Sauce Labs Backpack"));
         driver.findElements(By.partialLinkText("Backpack"));
         driver.findElements(By.xpath("//*[@id=inventory_container]")); // по атрибуту
-        driver.findElements(By.xpath("//span[text()='Sauce Labs Bike Ligt']"));// по тексту
+//        driver.findElements(By.xpath("//span[text()='Sauce Labs Bike Ligt']"));// по тексту
         driver.findElements(By.xpath("//*[contains(@id,'inventory')]"));// частичое совпадение атрибута
         driver.findElements(By.xpath("//tag[contains(text(),'Bike')]"));// частичное совпадение текста
         driver.findElements(By.xpath("//*[text()='Sauce Labs Bike Ligt']//ancestor::div"));// Ancestor т.е. выбирает предков текущего узла

@@ -1,12 +1,23 @@
 package tests;
 
+import io.qameta.allure.*;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 public class CheckOutTests extends BaseTest {
 
-    @Test
+    @Owner("Stanislaw")
+    @Link("")
+    @Description("Тест проверки страницы корзины")
+    @Epic("SauceDemo open page")
+    @Feature("open page")
+    @Story("Opening the page with positive cred")
+    @Severity(SeverityLevel.CRITICAL)
+    @Lead("Timofei")
+    @TmsLink("SD-01")
+    @Issue("SD_01/1")
+    @Test(testName = "Проверка всех строчек", priority = 4)
     public void checkAll() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");// авторизация
@@ -14,9 +25,20 @@ public class CheckOutTests extends BaseTest {
         productsPage.addToCart("Sauce Labs Bike Light");
         checkoutPage.open();
         checkoutPage.login("Max", "Alex", "123456");
+
     }
 
-    @Test
+    @Owner("Maksim Aliakseichyk")
+    @Link("")
+    @jdk.jfr.Description("Тест проверки страницы корзины")
+    @Epic("SauceDemo open page")
+    @Feature("open page")
+    @Story("Opening the page with positive cred")
+    @Severity(SeverityLevel.CRITICAL)
+    @Lead("TMS")
+    @TmsLink("SD-01")
+    @Issue("SD_01/1")
+    @Test(testName = "Проверка кода на странице Checkout", priority = 3)
     public void checkCode() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");// авторизация
@@ -29,7 +51,17 @@ public class CheckOutTests extends BaseTest {
                 "Сообщение о тесте не соответствует");
     }
 
-    @Test
+    @Owner("Maksim Aliakseichyk")
+    @Link("")
+    @jdk.jfr.Description("Тест проверки страницы корзины")
+    @Epic("SauceDemo open page")
+    @Feature("open page")
+    @Story("Opening the page with positive cred")
+    @Severity(SeverityLevel.CRITICAL)
+    @Lead("TMS")
+    @TmsLink("SD-01")
+    @Issue("SD_01/1")
+    @Test(testName = "Проверка имени на странице Checkout", priority = 2)
     public void checkLastName() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");// авторизация
@@ -42,7 +74,17 @@ public class CheckOutTests extends BaseTest {
                 "Сообщение о тесте не соответствует");
     }
 
-    @Test
+    @Owner("Maksim Aliakseichyk")
+    @Link("")
+    @jdk.jfr.Description("Тест проверки страницы корзины")
+    @Epic("SauceDemo open page")
+    @Feature("open page")
+    @Story("Opening the page with positive cred")
+    @Severity(SeverityLevel.CRITICAL)
+    @Lead("TMS")
+    @TmsLink("SD-01")
+    @Issue("SD_01/1")
+    @Test(testName = "Проверка фамилии на странице Checkout", priority = 4, dependsOnMethods = "checkLastName")
     public void checkFirstName() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");// авторизация
@@ -55,7 +97,17 @@ public class CheckOutTests extends BaseTest {
                 "Сообщение о тесте не соответствует");
     }
 
-    @Test
+    @Owner("Maksim Aliakseichyk")
+    @Link("")
+    @jdk.jfr.Description("Тест проверки страницы корзины")
+    @Epic("SauceDemo open page")
+    @Feature("open page")
+    @Story("Opening the page with positive cred")
+    @Severity(SeverityLevel.CRITICAL)
+    @Lead("TMS")
+    @TmsLink("SD-01")
+    @Issue("SD_01/1")
+    @Test(testName = "Выявление кода ошибки", priority = 1)
     public void checkAllString() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");// авторизация
@@ -68,7 +120,17 @@ public class CheckOutTests extends BaseTest {
                 "Сообщение о тесте не соответствует");
     }
 
-    @Test
+    @Owner("Maksim Aliakseichyk")
+    @Link("")
+    @jdk.jfr.Description("Тест проверки страницы корзины")
+    @Epic("SauceDemo open page")
+    @Feature("open page")
+    @Story("Opening the page with positive cred")
+    @Severity(SeverityLevel.CRITICAL)
+    @Lead("TMS")
+    @TmsLink("SD-01")
+    @Issue("SD_01/1")
+    @Test(testName = "Выявление кода ошибки если внести (чужие) параметры ", priority = 5, dependsOnMethods = "checkCode")
     public void checkTestString() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");// авторизация
