@@ -22,13 +22,15 @@ public class CartPage extends BasePage {
     }
 
     @Step("Стереть продукт из корзины")
-    public void useRemove() {
+    public CartPage useRemove() {
         driver.findElement(REMOVE_BUTTON).click();
+        return this;
     }
 
     @Step("Открыть корзину")
-    public void open() {
+    public CartPage open() {
         driver.get(BASE_URL + "cart.html");
+        return this;
     }
 
     @Step

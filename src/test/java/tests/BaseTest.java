@@ -11,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.testng.annotations.*;
 import pages.*;
+import steps.LoginStep;
 
 import java.time.Duration;
 import java.util.HashMap;
@@ -25,6 +26,7 @@ public class BaseTest {
     CartPage cartPage;
     CheckoutPage checkoutPage;
     OverviewPage overviewPage;
+    LoginStep loginStep;
 
     @Parameters({"browser"})
     @BeforeMethod(description = "Настройка браузера", alwaysRun = true)
@@ -56,6 +58,7 @@ public class BaseTest {
         cartPage = new CartPage(driver);
         checkoutPage = new CheckoutPage(driver);
         overviewPage = new OverviewPage(driver);
+        loginStep = new LoginStep(driver);
 
     }
 

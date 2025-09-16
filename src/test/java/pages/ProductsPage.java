@@ -3,11 +3,8 @@ package pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import tests.AllureUnits;
 
-import javax.naming.Name;
-
-import static tests.AllureUnits.takeScreenshot;
+import static tests.AllureUtils.takeScreenshot;
 
 public class ProductsPage extends BasePage {
 
@@ -26,9 +23,10 @@ public class ProductsPage extends BasePage {
     }
 
     @Step("Открыть иформацию о товаре")
-    public void open() {
+    public ProductsPage open() {
         driver.findElement(CART_BUTTON).click();
         takeScreenshot(driver);
+        return this;
     }
 
     @Step
@@ -39,8 +37,10 @@ public class ProductsPage extends BasePage {
     }
 
     @Step("Добавить в карту")
-    public void addToCart(String product) {
+    public ProductsPage addToCart(String product, String product1) {
         driver.findElement(By.xpath(String.format(ADD_TO_CART_PATTERN, product))).click();
+        driver.findElement(By.xpath(String.format(ADD_TO_CART_PATTERN, product1))).click();
         takeScreenshot(driver);
+        return this;
     }
 }

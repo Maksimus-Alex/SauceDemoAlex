@@ -19,12 +19,10 @@ public class CheckOutTests extends BaseTest {
     @Issue("SD_01/1")
     @Test(testName = "Проверка всех строчек", priority = 4)
     public void checkAll() {
-        loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");// авторизация
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.addToCart("Sauce Labs Bike Light");
-        checkoutPage.open();
-        checkoutPage.login("Max", "Alex", "123456");
+        loginStep.auth("standard_user", "secret_sauce");// авторизация
+        productsPage.addToCart("Sauce Labs Backpack", "Sauce Labs Bike Light");
+        checkoutPage.open()
+                .login("Max", "Alex", "123456");
 
     }
 
@@ -40,12 +38,10 @@ public class CheckOutTests extends BaseTest {
     @Issue("SD_01/1")
     @Test(testName = "Проверка кода на странице Checkout", priority = 3)
     public void checkCode() {
-        loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");// авторизация
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.addToCart("Sauce Labs Bike Light");
-        checkoutPage.open();
-        checkoutPage.login("Max", "Alex", "");
+        loginStep.auth("standard_user", "secret_sauce");// авторизация
+        productsPage.addToCart("Sauce Labs Backpack", "Sauce Labs Bike Light");
+        checkoutPage.open()
+                .login("Max", "Alex", "");
         assertEquals(checkoutPage.getErrorMessage(),
                 "Error: Postal Code is required",
                 "Сообщение о тесте не соответствует");
@@ -63,12 +59,10 @@ public class CheckOutTests extends BaseTest {
     @Issue("SD_01/1")
     @Test(testName = "Проверка имени на странице Checkout", priority = 2)
     public void checkLastName() {
-        loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");// авторизация
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.addToCart("Sauce Labs Bike Light");
-        checkoutPage.open();
-        checkoutPage.login("Max", "", "123456");
+        loginStep.auth("standard_user", "secret_sauce");// авторизация
+        productsPage.addToCart("Sauce Labs Backpack", "Sauce Labs Bike Light");
+        checkoutPage.open()
+                .login("Max", "", "123456");
         assertEquals(checkoutPage.getErrorMessage(),
                 "Error: Last Name is required",
                 "Сообщение о тесте не соответствует");
@@ -86,12 +80,10 @@ public class CheckOutTests extends BaseTest {
     @Issue("SD_01/1")
     @Test(testName = "Проверка фамилии на странице Checkout", priority = 4, dependsOnMethods = "checkLastName")
     public void checkFirstName() {
-        loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");// авторизация
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.addToCart("Sauce Labs Bike Light");
-        checkoutPage.open();
-        checkoutPage.login("", "Alex", "123456");
+        loginStep.auth("standard_user", "secret_sauce");// авторизация
+        productsPage.addToCart("Sauce Labs Backpack", "Sauce Labs Bike Light");
+        checkoutPage.open()
+                .login("", "Alex", "123456");
         assertEquals(checkoutPage.getErrorMessage(),
                 "Error: First Name is required",
                 "Сообщение о тесте не соответствует");
@@ -109,10 +101,8 @@ public class CheckOutTests extends BaseTest {
     @Issue("SD_01/1")
     @Test(testName = "Выявление кода ошибки", priority = 1)
     public void checkAllString() {
-        loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");// авторизация
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.addToCart("Sauce Labs Bike Light");
+        loginStep.auth("standard_user", "secret_sauce");// авторизация
+        productsPage.addToCart("Sauce Labs Backpack", "Sauce Labs Bike Light");
         checkoutPage.open();
         checkoutPage.login("", "", "");
         assertEquals(checkoutPage.getErrorMessage(),
@@ -132,11 +122,9 @@ public class CheckOutTests extends BaseTest {
     @Issue("SD_01/1")
     @Test(testName = "Выявление кода ошибки если внести (чужие) параметры ", priority = 5, dependsOnMethods = "checkCode")
     public void checkTestString() {
-        loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");// авторизация
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.addToCart("Sauce Labs Bike Light");
-        checkoutPage.open();
-        checkoutPage.login("Test", "Test", "Test");
+        loginStep.auth("standard_user", "secret_sauce");// авторизация
+        productsPage.addToCart("Sauce Labs Backpack", "Sauce Labs Bike Light");
+        checkoutPage.open()
+                .login("Test", "Test", "Test");
     }
 }

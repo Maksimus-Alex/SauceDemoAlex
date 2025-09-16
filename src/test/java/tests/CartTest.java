@@ -8,6 +8,7 @@ import static org.testng.Assert.assertEquals;
 
 public class CartTest extends BaseTest {
 
+
     @Owner("Maksim Aliakseichyk")
     @Link("")
     @Description("Тест проверки страницы корзины")
@@ -20,10 +21,8 @@ public class CartTest extends BaseTest {
     @Issue("SD_01/1")
     @Test(testName = "Тест открытия страницы корзины", description = "Прверка открытия страницы корзины")
     public void checkCartIsOpened() {
-        loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.addToCart("Sauce Labs Bolt T-Shirt");
+        loginStep.auth("standard_user", "secret_sauce");
+        productsPage.addToCart("Sauce Labs Backpack", "Sauce Labs Bike Light");
         cartPage.open();
         assertEquals(cartPage.getTitle(),
                 "Your Cart",
@@ -42,10 +41,8 @@ public class CartTest extends BaseTest {
     @Issue("SD_01/1")
     @Test(testName = "Добавить товар в корзину", priority = 1)
     public void addProductToCart() {
-        loginPage.open();
-        loginPage.login("standard_user", "secret_sauce");// авторизация
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.addToCart("Sauce Labs Bike Light");// добавили в корзину два товара
+        loginStep.auth("standard_user", "secret_sauce");
+        productsPage.addToCart("Sauce Labs Backpack", "Sauce Labs Bike Light");
     }
 
     @Owner("Maksim Aliakseichyk")
@@ -79,8 +76,8 @@ public class CartTest extends BaseTest {
     @Test(testName = "Удалить товар из корзины", priority = 2, dependsOnMethods = "addProductToCart")
     public void useToRemove() {
         checkProductInCart();
-        cartPage.useRemove();
-        cartPage.isProductInCart("Sauce Labs Backpack");
+        cartPage.useRemove()
+                .isProductInCart("Sauce Labs Backpack");
     }
 }
 
