@@ -10,8 +10,7 @@ public class OverviewTests extends BaseTest {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");// авторизация
-        productsPage.addToCart("Sauce Labs Backpack");
-        productsPage.addToCart("Sauce Labs Bike Light");
+        productsPage.addToCart("Sauce Labs Backpack", "Sauce Labs Bike Light");
         productsPage.open();
         checkoutPage.open();
         checkoutPage.login("Max", "Alex", "123456");
