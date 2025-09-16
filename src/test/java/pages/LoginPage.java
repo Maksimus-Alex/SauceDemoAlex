@@ -31,7 +31,7 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @Step ("Сообщение ошибки")
+    @Step("Сообщение ошибки")
     public String getErrorMessage() { // метод который выдает нам текст ошибки, если есть ошибка
         return driver.findElement(ERROR_MESSAGE).getText();
     }

@@ -1,6 +1,5 @@
 package tests;
 
-import com.sun.net.httpserver.Authenticator;
 import org.testng.IAnnotationTransformer;
 import org.testng.annotations.ITestAnnotation;
 

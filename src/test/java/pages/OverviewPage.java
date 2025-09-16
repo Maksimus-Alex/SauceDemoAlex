@@ -16,7 +16,7 @@ public class OverviewPage extends BasePage {
         super(driver);
     }
 
-    @Step ("Найти Цену")
+    @Step("Найти Цену")
     public String findPrice() {
         WebElement price = driver.findElement(PRODUCT_INFORMATION);
         takeScreenshot(driver);
@@ -24,7 +24,7 @@ public class OverviewPage extends BasePage {
         return priceProduct;
     }
 
-    @Step ("Найти скидку")
+    @Step("Найти скидку")
     public String findTax() {
         WebElement tax = driver.findElement(TAX_INFORMATION);
         takeScreenshot(driver);

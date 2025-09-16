@@ -24,7 +24,7 @@ public class CheckoutPage extends BasePage {
         return this;
     }
 
-    @Step ("Авторизация Checkout")
+    @Step("Авторизация Checkout")
     public CheckoutPage login(String firstname, String lastname, String code) { // Метод который помогает нам ввойти используя параметры
         driver.findElement(FIRSTNAME_INPUT).sendKeys(firstname);
         driver.findElement(LASTNAME_INPUT).sendKeys(lastname);
@@ -34,7 +34,7 @@ public class CheckoutPage extends BasePage {
         return this;
     }
 
-    @Step ("Сообщение ошибки")
+    @Step("Сообщение ошибки")
     public String getErrorMessage() { // метод который выдает нам текст ошибки, если есть ошибка
         return driver.findElement(ERROR_MESSAGE_CHECKOUT).getText();
     }
