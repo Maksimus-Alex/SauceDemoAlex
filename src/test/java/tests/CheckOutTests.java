@@ -7,7 +7,7 @@ import static org.testng.Assert.assertEquals;
 
 public class CheckOutTests extends BaseTest {
 
-    @Owner("Stanislaw")
+    @Owner("Maksim Aliakseichyk")
     @Link("")
     @Description("Тест проверки страницы корзины")
     @Epic("SauceDemo open page")
